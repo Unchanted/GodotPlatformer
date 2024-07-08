@@ -1,4 +1,4 @@
-# Arcade13 - A Retro Arcade Game
+# Arcade13 
 
 Welcome to **Arcade13**, game developed with the Godot Engine.
 
