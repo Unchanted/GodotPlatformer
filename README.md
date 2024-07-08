@@ -12,7 +12,7 @@ Welcome to **Arcade13**, game developed with the Godot Engine.
 
 ## Controls
 
-- **WSAD**: Move your character
+- **AD**: Move your character
 - **Spacebar**: Jump/Select
 
 
