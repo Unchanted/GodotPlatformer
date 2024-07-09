@@ -6,7 +6,7 @@ extends Area2D
 
 func _on_body_entered(body):
 	print("gameover")
-	Engine.time_scale = 1
+	Engine.time_scale = 0.5
 	body.get_node("CollisionShape2D").queue_free()
 	body.set_script(null)
 	timer.start()
@@ -19,4 +19,4 @@ func _on_timer_timeout():
 		get_tree().reload_current_scene()
 		
 	else:
-		get_tree().change_scene_to_file("res://scene/gameover.tscn")
+		get_tree().change_scene_to_file("res://scene/GameOver.tscn")
