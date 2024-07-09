@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cd1dtkqpfip5b"]
+[gd_scene load_steps=26 format=3 uid="uid://cd1dtkqpfip5b"]
 
 [ext_resource type="PackedScene" uid="uid://ervsnwac1065" path="res://scene/player.tscn" id="1_4nc1a"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ywi3i"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c3mamh0devwku" path="res://scene/killzone.tscn" id="5_einbn"]
 [ext_resource type="PackedScene" uid="uid://c1qwacgj3ed2b" path="res://scene/green_slime.tscn" id="6_blp7y"]
 [ext_resource type="FontFile" uid="uid://bygaiih0k8nty" path="res://assets/fonts/PixelOperator8.ttf" id="8_mofsg"]
+[ext_resource type="PackedScene" uid="uid://cjmseqgwrs6if" path="res://scene/PauseMenu.tscn" id="10_vn0cv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sxux3"]
 texture = ExtResource("2_hrqcx")
@@ -566,6 +567,10 @@ _data = {
 }
 
 [node name="Game" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("10_vn0cv")]
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
