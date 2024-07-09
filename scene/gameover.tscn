@@ -6,33 +6,37 @@
 [node name="gameover" type="CanvasLayer"]
 script = ExtResource("1_d8i2v")
 
-[node name="Rename" type="Button" parent="."]
-anchors_preset = 6
-anchor_left = 1.0
+[node name="restart" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -520.0
-offset_top = -12.0
-offset_right = -20.0
-offset_bottom = 18.0
+offset_left = 107.0
+offset_top = -17.0
+offset_right = 537.0
+offset_bottom = 23.0
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(0.994624, 1)
 theme_override_fonts/font = ExtResource("2_pv0mk")
-text = "Repeat your puny life again?"
+text = "Repeat your puny life
+ again?"
 
 [node name="Quit" type="Button" parent="."]
-anchors_preset = 4
+anchors_preset = -1
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 70.0
-offset_top = -12.0
-offset_right = 570.0
-offset_bottom = 18.0
+offset_left = -525.0
+offset_top = -17.0
+offset_right = -95.0
+offset_bottom = 23.0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_pv0mk")
-text = "This is for you (quit)"
+text = "This is for you 
+(quit)"
 
-[connection signal="pressed" from="Rename" to="." method="_on_rename_pressed"]
+[connection signal="pressed" from="restart" to="." method="_on_rename_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

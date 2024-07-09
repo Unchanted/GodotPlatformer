@@ -8,6 +8,7 @@ func _on_body_entered(body):
 	print("gameover")
 	Engine.time_scale = 1
 	body.get_node("CollisionShape2D").queue_free()
+	body.set_script(null)
 	timer.start()
 
 func _on_timer_timeout():
