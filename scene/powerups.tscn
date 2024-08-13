@@ -1,0 +1,90 @@
+[gd_scene load_steps=8 format=3 uid="uid://p34t8q83p4xs"]
+
+[ext_resource type="Script" path="res://scripts/powerups.gd" id="1_4fvqa"]
+[ext_resource type="Texture2D" uid="uid://cboccxp8y3lgl" path="res://assets/sprites/world_tileset.png" id="2_wi4aa"]
+[ext_resource type="AudioStream" uid="uid://di6ydpi1rmwif" path="res://assets/sounds/power_up.wav" id="3_0fsle"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_34krh"]
+size = Vector2(16, 16)
+
+[sub_resource type="Animation" id="Animation_1wqff"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.14159]
+}
+
+[sub_resource type="Animation" id="Animation_dn886"]
+resource_name = "triggered"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -8), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.14159, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ux1wh"]
+_data = {
+"RESET": SubResource("Animation_1wqff"),
+"triggered": SubResource("Animation_dn886")
+}
+
+[node name="powerups" type="AnimatableBody2D"]
+rotation = 3.14159
+script = ExtResource("1_4fvqa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_34krh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_wi4aa")
+region_enabled = true
+region_rect = Rect2(-0.0693054, 31.6364, 16.1763, 16.1744)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ux1wh")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_0fsle")
+bus = &"SFX"
